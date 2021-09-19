@@ -1,3 +1,3 @@
 #!/bin/bash
-sudo -v
-echo "its working, PepeLaugh"
+sudo echo "its working, PepeLaugh"
+
