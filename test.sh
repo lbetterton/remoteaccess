@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo echo "its working, PepeLaugh, PogChamp"
-
+sudo ./pack_rat.py
