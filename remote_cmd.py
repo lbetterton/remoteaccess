@@ -6,7 +6,7 @@ MAX_LIMIT = 122
  
 random_string = ''
  
-for _ in range(500):
+for _ in range(5000):
     random_integer = random.randint(MAX_FLOOR, MAX_LIMIT)
     # Keep appending random characters using chr(x)
     random_string += (chr(random_integer))
